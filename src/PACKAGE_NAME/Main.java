@@ -5,6 +5,7 @@ import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.ParseException;
+import org.apache.commons.cli.HelpFormatter;
 
 public class Main {
 
@@ -16,10 +17,18 @@ public class Main {
 		CommandLineParser parser = new BasicParser();
 		try {
 			CommandLine cmd = parser.parse(options, args);
+			
+			if (cmd.hasOption("h")) {
+			    HelpFormatter help = new HelpFormatter();
+			    help.printHelp("PROJECT_NAME", options );
+			}
 		}
 		catch (ParseException e) {
 
+		    System.err.println(e);
+		    System.out.println();
+		    HelpFormatter formatter = new HelpFormatter();
+		    formatter.printHelp("PROJECT_NAME", options );
 		}
-	
     }
 }
