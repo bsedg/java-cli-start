@@ -25,6 +25,10 @@ Remove created files from dist/ and build/:
 
        ant clean
 
+Run application via command line (requires jar file created):
+
+    java -jar dist/PROJECT_NAME.jar
+
 ### Git
 
 Clone the latest code from git:
